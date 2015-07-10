@@ -11,21 +11,7 @@
     <script type="text/javascript" src="./lib/angular/angular-animate.min.js"></script>
     <script type="text/javascript" src="./lib/angular/angular-touch.min.js"></script>
 
-    <script type="text/javascript">
-    angular.module('app', ['ngRoute','ngAnimate','ngSanitize','ngTouch']);
-
-    angular.element(document).ready(function(){
-      angular.bootstrap(document,['app']);
-    });
-
-    angular.module('app').controller('layoutController', ['$scope', function($scope){
-      $scope.name = '강환기';
-
-      $scope.back = function(){
-        window.href = "http://naver.com";
-      };
-    }]);
-    </script>
+    <script type="text/javascript"/>
 
     <script type="text/javascript">
     angular.module('app').controller('viewController', ['$scope', function($scope){
@@ -37,9 +23,9 @@
     </script>
 
   </head>
-  <body data-ng-controller="layoutController">
-    <div data-ng-controller="viewController">
-      <a data-ng-click="back();">back</a> Hello {{name}}
+  <body data-ng-controller="layoutController as layout">
+    <div data-ng-controller="viewController as view">
+      <a href="#" data-ng-click="back();">back</a> Hello {{name}}
     </div>
   </body>
 </html>
