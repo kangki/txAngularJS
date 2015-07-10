@@ -9,9 +9,21 @@
     <script type="text/javascript" src="./lib/angular/angular-sanitize.min.js"></script>
     <script type="text/javascript" src="./lib/angular/angular-animate.min.js"></script>
     <script type="text/javascript" src="./lib/angular/angular-touch.min.js"></script>
+    <script type="text/javascript">
+
+    var app = angular.module('app', ['ngRoute','ngAnimate','ngSanitize','ngTouch']);
+
+    app.controller('layoutAct', ['$scope', function($scope){
+      $scope.name = '강환기';
+    }])
+
+    angular.element(document).ready(function(){
+      angular.bootstrap(document,['app']);
+    });
+    </script>
   </head>
-  <body>
-    Hello
+  <body data-ng-controller="layoutAct">
+    Hello {{name}}
   </body>
 </html>
 
