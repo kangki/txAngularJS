@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AngularJS Tx001</title>
+    <script type="text/javascript" src="./lib/angular/angular.min.js"></script>
+
+    <script type="text/javascript">
+    // 01. 모듈선언
+    angular.module('app', []);
+
+    // 02. 컨트롤러선언
+    angular.module('app').controller('controller', ['$scope', function($scope){
+      $scope.name = '홍길동';
+    }]);
+
+    angular.element(document).ready(function(){
+      // 03. angular 실행
+      angular.bootstrap(document,['app']);
+    });
+    </script>
+  </head>
+  <body data-ng-controller="controller">
+    Hello {{name}}
+  </body>
+</html>
+
