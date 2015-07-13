@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AngularJs 01</title>
+    <script type="text/javascript" src="./lib/angular/angular.min.js"></script>
+    <script type="text/javascript">
+    // 01. 모듈선언
+    angular.module('app', []);
+
+    // 02. 컨트롤러선언
+    angular.module('app').controller('layoutController', ['$scope',function($scope){
+      $scope.name = '홍길동';
+    }]);
+
+    // 03. angular 실행
+    angular.element(document).ready(function(){
+      angular.bootstrap(document,['app']);
+    });
+    </script>
+  </head>
+  <body data-ng-controller="layoutController as layout">
+    <div data-ng-bind="'Hello' + name"></div>
+  </body>
+</html>
