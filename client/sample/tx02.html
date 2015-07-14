@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>AngularJs 02</title>
-    <script type="text/javascript" src="./lib/angular/angular.min.js"></script>
-    <script type="text/javascript" src="./lib/angular/angular-route.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular-route.min.js"></script>
 
     <script type="text/javascript">
     // 01. 모듈선언
@@ -23,10 +23,9 @@
 
     // 04. Route 선언
     angular.module('app').config(['$routeProvider',function($routeProvider){
-      $routeProvider
-      .otherwise({redirectTo:'/'})
-      .when('/',{ templateUrl:'/views/tx02.tpl', controller:'tx02Controller'})
-      .when('/01',{ templateUrl:'/views/tx02.tpl', controller:'tx0201Controller'});
+      $routeProvider.otherwise({redirectTo:'/'});
+      $routeProvider.when('/',{ templateUrl:'/sample/views/tx02.tpl', controller:'tx02Controller'});
+      $routeProvider.when('/01',{ templateUrl:'/sample/views/tx02.tpl', controller:'tx0201Controller'});
     }]);
 
     // 05. Http 요청 객체
@@ -37,12 +36,9 @@
 
           var defered = $q.defer();
           function callback(rsp){
-            var result = {
-              status : rsp.status,
-              data : rsp.status == 200 ? rsp.data : null
-            };
+            var status = rsp.status, result = rsp.status == 200 ? rsp.data : null;
 
-            if(result.status == 200){
+            if(status == 200){
               defered.resolve(result);
               return;
             }
@@ -57,10 +53,10 @@
     angular.module('app').controller('tx02Controller', ['$scope','$location','httpService',function($scope,$location,httpService){
       $scope.name = 'tx02';
       $scope.search = function(){
-        httpService.post('/json/tx02.json',{}).then(function(result){
-          $scope.list = result.data.data.list;
+        httpService.post('/sample/json/tx02.json',{}).then(function(result){
+          $scope.list = result.list;
         });
-      }; 
+      };
       $scope.go = function(){
         $location.path('/01');
       };
@@ -69,8 +65,8 @@
     angular.module('app').controller('tx0201Controller', ['$scope','$location','httpService',function($scope,$location,httpService){
       $scope.name = 'tx0201';
       $scope.search = function(){
-        httpService.post('/json/tx0201.json',{}).then(function(result){
-          $scope.list = result.data.data.list;
+        httpService.post('/sample/json/tx0201.json',{}).then(function(result){
+          $scope.list = result.list;
         });
       }; 
       $scope.go = function(){
