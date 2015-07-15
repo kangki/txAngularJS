@@ -37,7 +37,7 @@ http.createServer(function(request,response){
 			return;
 		}
 	}catch(e){
-		console.log(e.stack);
+		//console.log(e.stack);
 	}
 
 	response.writeHeader(404, {
