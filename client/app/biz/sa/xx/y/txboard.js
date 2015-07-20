@@ -1,9 +1,18 @@
-app.config(['$routeProvider',function($routeProvider){
-    $routeProvider.otherwise({redirectTo:'/01'});
-    $routeProvider.when('/01',{ templateUrl:'/views/biz/sa/xx/y/txboard01.tpl', controller:'txboard01Ctr'});
-}]);
+bindController({
+	path:'/01',
+	name:'txboard01Ctr',
+	tpl:'/biz/sa/xx/y/txboard01',
+	controller:['$scope',function($scope){
 
-app.controller('txboard01Ctr', ['$scope','$log', function($scope,$log){
-	var top = 
-	$log.debug($scope);
-}])
+	}]
+}, true);
+
+bindController({
+	path:'/02/:no',
+	name:'txboard02Ctr',
+	tpl:'/biz/sa/xx/y/txboard02',
+	controller:['$scope',function($scope){
+		console.log($scope.top.params);
+	}]
+});
+
