@@ -4,7 +4,9 @@ bindController({
 	name:'txboard01Ctr',
 	tpl:'/biz/sa/xx/y/txboard01',
 	controller:['$scope',function($scope){
-
+		var cmm = $scope.cmm;
+		var log = cmm.log('txboard01Ctr');
+		log.out('####################', 'asdfasdf', 'asdfasdf', {});
 	}]
 }, true);
 
@@ -16,6 +18,8 @@ bindController({
 	controller:['$scope',function($scope){
 		var cmm = $scope.cmm;
 		var top = $scope.top;
+
+
 	}]
 });
 
