@@ -1,3 +1,4 @@
+/* -- CONFIG -- */
 
 var appname = 'app';
 var app = angular.module(appname, ['ngRoute']);
@@ -5,6 +6,8 @@ var app = angular.module(appname, ['ngRoute']);
 angular.element(document).ready(function(){
 	angular.bootstrap(document,[appname]);
 });
+
+/* -- PRIVATE -- */
 
 function bindController(data, otherwise){
 	app.config(['$routeProvider',function($routeProvider){
